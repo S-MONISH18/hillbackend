@@ -16,7 +16,7 @@ const TractorListing = () => {
   const fetchTractors = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:5000/api/tractors');
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/tractors`);
       if (!response.ok) throw new Error('Failed to fetch tractors');
       const data = await response.json();
       setTractors(data);
@@ -67,11 +67,10 @@ const TractorListing = () => {
         </div>
         <button
           onClick={() => setFilterAvailable(!filterAvailable)}
-          className={`flex items-center gap-2 px-5 py-3 rounded-lg border transition-all ${
-            filterAvailable
+          className={`flex items-center gap-2 px-5 py-3 rounded-lg border transition-all ${filterAvailable
               ? 'bg-primary/10 border-primary text-primary'
               : 'border-border text-muted-foreground hover:border-primary/50'
-          }`}
+            }`}
         >
           <Filter className="h-4 w-4" />
           <span className="font-medium">Available Only</span>

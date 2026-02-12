@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: hill-backend
+    env: node
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: MONGO_URI
+        sync: false
+    autoDeploy: false

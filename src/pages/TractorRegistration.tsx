@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   UserPlus,
@@ -97,7 +97,7 @@ const TractorRegistration = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/tractors/register",
+        `${import.meta.env.VITE_API_URL}/api/tractors/register`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -178,9 +178,8 @@ const TractorRegistration = () => {
                     value={formData.ownerName}
                     onChange={(e) => handleInputChange('ownerName', e.target.value)}
                     placeholder="Enter your full name"
-                    className={`input-field pl-12 ${
-                      errors.ownerName ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
-                    }`}
+                    className={`input-field pl-12 ${errors.ownerName ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
+                      }`}
                   />
                 </div>
                 {errors.ownerName && (
@@ -203,9 +202,8 @@ const TractorRegistration = () => {
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
                     placeholder="your.email@example.com"
-                    className={`input-field pl-12 ${
-                      errors.email ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
-                    }`}
+                    className={`input-field pl-12 ${errors.email ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
+                      }`}
                   />
                 </div>
                 {errors.email && (
@@ -228,9 +226,8 @@ const TractorRegistration = () => {
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
                     placeholder="+91 98765 43210"
-                    className={`input-field pl-12 ${
-                      errors.phone ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
-                    }`}
+                    className={`input-field pl-12 ${errors.phone ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
+                      }`}
                   />
                 </div>
                 {errors.phone && (
@@ -253,9 +250,8 @@ const TractorRegistration = () => {
                     value={formData.location}
                     onChange={(e) => handleInputChange('location', e.target.value)}
                     placeholder="City, State"
-                    className={`input-field pl-12 ${
-                      errors.location ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
-                    }`}
+                    className={`input-field pl-12 ${errors.location ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
+                      }`}
                   />
                 </div>
                 {errors.location && (
@@ -286,9 +282,8 @@ const TractorRegistration = () => {
                     value={formData.model}
                     onChange={(e) => handleInputChange('model', e.target.value)}
                     placeholder="e.g., Mahindra 575 DI"
-                    className={`input-field pl-12 ${
-                      errors.model ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
-                    }`}
+                    className={`input-field pl-12 ${errors.model ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
+                      }`}
                   />
                 </div>
                 {errors.model && (
@@ -311,9 +306,8 @@ const TractorRegistration = () => {
                     value={formData.tractorNumber}
                     onChange={(e) => handleInputChange('tractorNumber', e.target.value)}
                     placeholder="e.g., PB-10-AB-1234"
-                    className={`input-field pl-12 ${
-                      errors.tractorNumber ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
-                    }`}
+                    className={`input-field pl-12 ${errors.tractorNumber ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
+                      }`}
                   />
                 </div>
                 {errors.tractorNumber && (
@@ -337,9 +331,8 @@ const TractorRegistration = () => {
                     onChange={(e) => handleInputChange('horsepower', e.target.value)}
                     placeholder="e.g., 47"
                     min="0"
-                    className={`input-field pl-12 ${
-                      errors.horsepower ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
-                    }`}
+                    className={`input-field pl-12 ${errors.horsepower ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
+                      }`}
                   />
                 </div>
                 {errors.horsepower && (
@@ -360,9 +353,8 @@ const TractorRegistration = () => {
                   <select
                     value={formData.fuelType}
                     onChange={(e) => handleInputChange('fuelType', e.target.value)}
-                    className={`input-field pl-12 ${
-                      errors.fuelType ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
-                    }`}
+                    className={`input-field pl-12 ${errors.fuelType ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
+                      }`}
                   >
                     <option value="Diesel">Diesel</option>
                     <option value="Petrol">Petrol</option>
@@ -398,9 +390,8 @@ const TractorRegistration = () => {
                     onChange={(e) => handleInputChange('rentPerHour', e.target.value)}
                     placeholder="500"
                     min="0"
-                    className={`input-field pl-12 ${
-                      errors.rentPerHour ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
-                    }`}
+                    className={`input-field pl-12 ${errors.rentPerHour ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
+                      }`}
                   />
                 </div>
                 {errors.rentPerHour && (
@@ -424,9 +415,8 @@ const TractorRegistration = () => {
                     onChange={(e) => handleInputChange('rentPerDay', e.target.value)}
                     placeholder="3500"
                     min="0"
-                    className={`input-field pl-12 ${
-                      errors.rentPerDay ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
-                    }`}
+                    className={`input-field pl-12 ${errors.rentPerDay ? 'border-danger focus:border-danger focus:ring-danger/20' : ''
+                      }`}
                   />
                 </div>
                 {errors.rentPerDay && (
@@ -451,14 +441,12 @@ const TractorRegistration = () => {
               <button
                 type="button"
                 onClick={() => handleInputChange('isAvailable', !formData.isAvailable)}
-                className={`relative w-14 h-7 rounded-full transition-colors ${
-                  formData.isAvailable ? 'bg-success' : 'bg-muted'
-                }`}
+                className={`relative w-14 h-7 rounded-full transition-colors ${formData.isAvailable ? 'bg-success' : 'bg-muted'
+                  }`}
               >
                 <span
-                  className={`absolute top-0.5 h-6 w-6 rounded-full bg-white shadow-md transition-all ${
-                    formData.isAvailable ? 'left-7' : 'left-0.5'
-                  }`}
+                  className={`absolute top-0.5 h-6 w-6 rounded-full bg-white shadow-md transition-all ${formData.isAvailable ? 'left-7' : 'left-0.5'
+                    }`}
                 />
               </button>
             </div>
